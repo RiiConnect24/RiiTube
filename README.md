@@ -1,7 +1,7 @@
 # RiiTube
 A way to watch YouTube on your Wii with WiiMC.
 
-The code is **extremely** simple. All it does is:
+The code is extremely simple. All it does is:
 
 1. Use Inviduous API to search for videos, or browse trending or popular videos (probably tech-related because that's what Inviduous tends to grab).
 2. Returns a playlist file in WiiMC format.
