@@ -8,11 +8,11 @@ import json
 form = FieldStorage()
 
 if "q" in form.keys():
-    api = requests.get("https://y.com.sb/api/v1/search?q=" + form["q"].value).json()
+    api = requests.get("https://yt.artemislena.eu/api/v1/search?q=" + form["q"].value).json()
 elif "trending" in form.keys():
-    api = requests.get("https://y.com.sb/api/v1/trending").json()
+    api = requests.get("https://yt.artemislena.eu/api/v1/trending").json()
 else:
-    api = requests.get("https://y.com.sb/api/v1/popular").json()
+    api = requests.get("https://yt.artemislena.eu/api/v1/popular").json()
 
 print("Content-Type: text/plain;charset=UTF-8;\n");
 
