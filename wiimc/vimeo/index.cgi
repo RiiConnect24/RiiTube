@@ -3,9 +3,9 @@ from cgi import FieldStorage
 import vimeo
 
 v = vimeo.VimeoClient(
-    token="redacted",
-    key="redacted",
-    secret="redacted"
+    token="b0acb6b53986ddef2c2cb4417c627bce",
+    key="57495f1cd3af69fc968bbf6df62eebc9fe4a3063",
+    secret="NCCiDI8jX8h8sXX21drIl/00AGXKCUKO6il8mOqyZvgV7bvsgs4fTLzeSqPt0u+BoIns1ZDV6V2KtzPffyGTjS6DpepE5g/RBcAKKsDChnPyErNrpcT9FbfFnB1i6Jk9"
 )
 
 form = FieldStorage()

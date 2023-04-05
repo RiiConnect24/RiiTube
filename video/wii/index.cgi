@@ -5,6 +5,7 @@ from sys import stdout
 import io
 import requests
 import subprocess
+import urllib.parse
 
 form = FieldStorage()
 
@@ -15,6 +16,8 @@ try:
         video_url = "https://vimeo.com/" + form["q"].value
     elif form["site"].value == "dailymotion":
         video_url = "https://dailymotion.com/video/" + form["q"].value
+    elif form["site"].value == "iptv":
+        video_url = urllib.parse.unquote(form["q"].value)
 except:
     pass
 
@@ -26,6 +29,10 @@ if "youtube" in video_url or "vimeo" in video_url:
 
 elif "dailymotion" in video_url:
     proc = subprocess.Popen(["yt-dlp", "-f", "[tbr<=850]", video_url, "-o", "-"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+else:
+    proc = subprocess.Popen(["ffmpeg", "-i", video_url, "-movflags", "frag_keyframe+empty_moov", "-f", "ismv", "-bsf:a", "aac_adtstoasc", "-vf", "scale=640:480", "-"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+#    proc = subprocess.Popen(["yt-dlp", "-f", "worst", video_url, "-o", "-", "--downloader", "ffmpeg", "--hls-use-mpegts", "--recode", "mp4"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 for chunk in iter(proc.stdout):
     stdout.flush()
