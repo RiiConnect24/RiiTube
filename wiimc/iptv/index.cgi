@@ -28,13 +28,11 @@ for entry in api.split(b"\n"):
         if last not in playlist:
             playlist[last] = entry
 
-i = 1
-
-for entry in playlist:
-    print("File" + str(i) + "=" + "http://riitube.rc24.xyz/video/wii/?q=" + urllib.parse.quote(playlist[entry]) + "&site=iptv")
-    print("Title" + str(i) + "=" + entry.decode())
-    print("Length" + str(i) + "=" + "9999999")
-
-    i += 1
+for i, (entry, value) in enumerate(playlist.items(), start=1):
+    print(
+        f"File{str(i)}=http://riitube.rc24.xyz/video/wii/?q={urllib.parse.quote(value)}&site=iptv"
+    )
+    print(f"Title{str(i)}={entry.decode()}")
+    print(f"Length{str(i)}=9999999")
     # except:
         # continue
