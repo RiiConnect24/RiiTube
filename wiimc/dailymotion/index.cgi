@@ -12,11 +12,11 @@ print("Content-Type: text/plain;charset=UTF-8;\n");
 
 print("[Playlist]")
 
-i = 1
-
-for entry in api:
-    print("File" + str(i) + "=" + "http://riitube.rc24.xyz/video/wii/?q=" + entry["id"] + "&site=dailymotion".replace("https://dailymotion.com/", ""))
-    print("Title" + str(i) + "=" + entry["title"])
-    print("Length" + str(i) + "=" + str(0))
-
-    i += 1
+for i, entry in enumerate(api, start=1):
+    print(
+        f"File{str(i)}=http://riitube.rc24.xyz/video/wii/?q="
+        + entry["id"]
+        + "&site=dailymotion".replace("https://dailymotion.com/", "")
+    )
+    print(f"Title{str(i)}=" + entry["title"])
+    print(f"Length{str(i)}=0")

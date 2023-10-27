@@ -22,9 +22,9 @@ i = 1
 
 for entry in api:
     try:
-        print("File" + str(i) + "=" + "http://riitube.rc24.xyz/video/wii/?q=" + entry["videoId"])
-        print("Title" + str(i) + "=" + entry["title"])
-        print("Length" + str(i) + "=" + str(entry["lengthSeconds"]))
+        print(f"File{str(i)}=http://riitube.rc24.xyz/video/wii/?q=" + entry["videoId"])
+        print(f"Title{str(i)}=" + entry["title"])
+        print(f"Length{str(i)}=" + str(entry["lengthSeconds"]))
 
         i += 1
     except:
